@@ -78,8 +78,10 @@ import { BrowserRouter as Router,Route,Switch} from 'react-router-dom';
             <Switch>
               <Route exact path="/" component={Acceuil} />
               <Route path="/Login" component={Login}/>
+              <Route path="/SignUp" component={SignUp}/>
               <Route path="/Add" component={AddTheseComponent}/>
               <Route path="/List" component={ListTheseComponent} />
+              
     
             </Switch>
         </Router>
