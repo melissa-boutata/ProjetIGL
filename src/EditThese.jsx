@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import ApiService from "../../service/ApiService";
+import ApiService from "./service/ApiService";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import NavBar from './NavBar.jsx';
 
 class EditUserComponent extends Component {
 
@@ -54,8 +55,12 @@ class EditUserComponent extends Component {
 
     render() {
         return (
+           
             <div>
-                <Typography variant="h4" style={style}>Modifier la thèse de Doctorat</Typography>
+                 <NavBar/> 
+                <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+              Modifier thèse
+            </Typography>
                 <form>
 
                 <TextField type="text" placeholder="Titre de la thèse" fullWidth margin="normal" name="title" value={this.state.title} onChange={this.onChange}/>

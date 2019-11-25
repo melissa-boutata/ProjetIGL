@@ -1,5 +1,5 @@
 
-/* import React from 'react';
+/*import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -10,10 +10,9 @@ import SignUp from "./signup.component";
 function App() {
   return (<Router>
     <div className="App">
-    
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-        <Link className="navbar-brand" to={"/sign-in"}>positronX.io</Link>
+          
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -38,9 +37,9 @@ function App() {
       </div>
     </div></Router>
   );
-}
+} 
 
-export default App; */ 
+export default App;  */ 
 
 /*import React, { Component } from 'react';
 //import FileUploadComponent from './File.js';  
@@ -54,31 +53,45 @@ class App extends Component {
       <FormPage /> 
     )
   }
-}
-export default App; */ 
+} 
+export default App;  */ 
 
 import React, { Component } from 'react';
 //import FileUploadComponent from './File.js';  
 //import FormInputs  from './FormPage.js'; 
 import Acceuil from './Acceuil.js';
-import Login from './Login.js' ; 
+import Login from './login.component.js' ; 
+import SignUp from './signup.component.js' ; 
 import AddTheseComponent from './AddThese.jsx';
+import ListTheseComponent from './AfficherThese.jsx'; 
+import EditUserComponent from './EditThese.jsx'; 
 import NavBar from './NavBar.jsx'; 
 import Container from '@material-ui/core/Container';
+import SideBar from './SideBar.jsx'; 
+import './App.css'; 
+import { BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 
+    const App = (props) => {
+      return (
+        <Router>
+           
+            <Switch>
+              <Route exact path="/" component={Acceuil} />
+              <Route path="/Login" component={Login}/>
+              <Route path="/Add" component={AddTheseComponent}/>
+              <Route path="/List" component={ListTheseComponent} />
+    
+            </Switch>
+        </Router>
+      );
+    };
+   /* class App extends Component {
+      render()
+      {
+        return (
+          <SignUp> </SignUp>
 
-
-class App extends Component {
-  render() {
-    return (
-      <div> 
-       
-            
-              <Acceuil/>
-            
-      
-      </div> 
-    )
-  }
-}
-export default App;
+        );
+      }
+    }*/ 
+export default App; 

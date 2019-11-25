@@ -16,7 +16,7 @@ class FileUploadComponent extends Component
     }
     onFormSubmit(e){
       e.preventDefault() 
-      this.fileUpload(this.state.image);
+      
     }
     onChange(e) {
       let files = e.target.files || e.dataTransfer.files;
@@ -44,9 +44,7 @@ class FileUploadComponent extends Component
    {
       return(
          <form onSubmit={this.onFormSubmit}>
-        <h1>React js Laravel File Upload Tutorial</h1>
         <input type="file"  onChange={this.onChange}  />
-        <button type="submit">Upload</button>
       </form>
       )
    }

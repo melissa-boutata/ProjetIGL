@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter , Switch} from "react-router-dom";
+import Route from 'react-router-dom/Route'
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -11,9 +12,12 @@ import "mdbreact/dist/css/mdb.css";
 
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <App> </App>
     </BrowserRouter>,
     document.getElementById("root")
 );
 
 serviceWorker.unregister();
+
+
+

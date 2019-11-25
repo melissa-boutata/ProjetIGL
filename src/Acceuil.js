@@ -1,7 +1,8 @@
+
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+import ThreeDRotation from '@material-ui/icons/ThreeDRotation';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -12,21 +13,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+//import { Link as Liink}  from '@material-ui/core/Link';
 import { Redirect } from 'react-router-dom'; 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { Link } from 'react-router-dom'; 
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -72,6 +61,18 @@ const useStyles = makeStyles(theme => ({
       return <Redirect to='./login.component.js' />
     }
   }
+  function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Liink color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Liink>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 */ 
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -84,7 +85,7 @@ export default function Acceuil() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <CameraIcon className={classes.icon} />
+          <ThreeDRotation className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
             ESI Scolarité
           </Typography>
@@ -106,9 +107,11 @@ export default function Acceuil() {
               <Grid container spacing={2} justify="center">
                 
                 <Grid item>
-                  <Button variant="outlined" color="primary" >
-                    Administrateur
-                  </Button>
+                  <Link className="sidenav-list__item" to="/Login" >
+                 <Button variant="outlined" color="primary" >
+                   <span>Administration</span>
+                 </Button>
+                </Link>
                 </Grid>
                 <Grid item>
                   <Button variant="contained" color="primary">
@@ -132,7 +135,6 @@ export default function Acceuil() {
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Something here to give the footer a purpose!
         </Typography>
-        <Copyright />
       </footer>
       {/* End footer */}
     </React.Fragment>
