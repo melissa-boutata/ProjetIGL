@@ -7,6 +7,10 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import "./App.css";
 
 
+/**
+* Classe SieBar
+       
+*/
 const SideBar = () => {
   return (
     <SideNav id="Sidebar"

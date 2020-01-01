@@ -9,9 +9,15 @@ import SideBar from './SideBar.jsx'
 import axios from 'axios';
 
 import './App.css'; 
+/**
+ *  Classe  AddTheseComponent qui permet d'ajouter une thèse
+ */
 
 class AddTheseComponent extends Component{
 
+    /**
+    * @constructor
+    */
     constructor(props){
         super(props);
         this.state ={
@@ -27,16 +33,22 @@ class AddTheseComponent extends Component{
         //this.fileUpload = this.fileUpload.bind(this)
     }
    
-     
+
+    /**
+    *  Méthode qui joute une these et met à jour l'état du composant 
+    */
+ 
     saveThese (e) {
+        /*
         e.preventDefault();
         let these = {title: this.state.title, profsName: this.state.profsName, studentName: this.state.studentName, description: this.state.description, month: this.state.month};
      
            axios.post('api/add',these)
             .then(res => {
                 this.setState({message : 'These added successfully.'});
-                this.props.history.push('/');
+                this.props.history.push('/List');
             })
+        
             .catch(error=>{
                 this.refs.title.value="";
                 this.refs.description.value="";
@@ -44,44 +56,15 @@ class AddTheseComponent extends Component{
                 this.refs.profsName.value="";
                 this.refs.studentName.value="";
                 this.setState({err: true});
-              });
+              });*/ 
+              this.props.history.push('/');
+
          }
 
     onChange (e) {
 
         this.setState({ [e.target.name]: e.target.value });
     }
-        
-
-
-
-        /*File méthode 
-          onChange1(e) {
-            let files = e.target.files || e.dataTransfer.files;
-            if (!files.length)
-                  return;
-            this.createImage(files[0]);
-          }
-          createImage(file) {
-            let reader = new FileReader();
-            reader.onload = (e) => {
-              this.setState({
-                image: e.target.result
-              })
-            };
-            reader.readAsDataURL(file);
-          }
-          fileUpload(image){
-            const formData = {file: this.state.image}
-           /* return  post(url,formData)
-                    .then(response => console.log(response))
-            ApiService.addFile(formData)
-            .then(res => {
-                this.setState({message : 'File added successfully.'});
-                 <input type="file"  onChange={this.onChange1} />
-            });
-          } 
-            */ 
         
     render() {
         return(
@@ -94,16 +77,16 @@ class AddTheseComponent extends Component{
             </Typography>
                 <form style={formContainer}>
                 
-                    <TextField type="text" placeholder="Titre de la thèse" fullWidth margin="normal" name="title" value={this.state.title} onChange={this.onChange}/>
+                    <TextField id="title" type="text" placeholder="Titre de la thèse" fullWidth margin="normal" name="title" value={this.state.title} onChange={this.onChange}/>
 
-                    <TextField type="text" placeholder="Profs encadrants" fullWidth margin="normal" name="profsName" value={this.state.profs} onChange={this.onChange}/>
+                    <TextField id="prof" type="text" placeholder="Profs encadrants" fullWidth margin="normal" name="profsName" value={this.state.profs} onChange={this.onChange}/>
 
-                    <TextField placeholder="Etudiants concernés" fullWidth margin="normal" name="studentName" value={this.state.Name} onChange={this.onChange}/>
+                    <TextField id="etud" placeholder="Etudiants concernés" fullWidth margin="normal" name="studentName" value={this.state.Name} onChange={this.onChange}/>
 
-                    <TextField type="year" placeholder="Année Scolaire" fullWidth margin="normal" name="annee" value={this.state.annee} onChange={this.onChange}/>
-                    <TextField placeholder="Description" fullWidth margin="normal" name="description" value={this.state.description} onChange={this.onChange}/>
+                    <TextField id="month" type="month" placeholder="Année Scolaire" fullWidth margin="normal" name="month" value={this.state.annee} onChange={this.onChange}/>
+                    <TextField id="description" placeholder="Description" fullWidth margin="normal" name="description" value={this.state.description} onChange={this.onChange}/>
 
-                    <Button id="send" variant="contained" color="primary" onClick={this.saveThese}>Enregistrer</Button>
+                    <Button id="send" type ="submit" variant="contained" color="primary" onClick={this.saveThese}>Enregistrer</Button>
 
                </form>
                </div> 

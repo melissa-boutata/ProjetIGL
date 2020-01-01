@@ -12,65 +12,78 @@ import Typography from '@material-ui/core/Typography';
 import NavBar from './NavBar.jsx';
 import SideBar from './SideBar.jsx';
 import Container from '@material-ui/core/Container'; 
-import Axios from 'axios';
+import axios from 'axios';
+
+/**
+ *  Classe ListTheseComponent qui affiche la liste des thèses existantes dans le système 
+ */
 
 class ListTheseComponent extends Component {
+    /**
+ * @constructor
+ */
 
     constructor(props) {
         super(props)
         this.state = {
-            theses: [{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },],
-            message: null, 
+           /* theses: [{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },{ id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },
+            { id: 1,title:"Detection de fraude", profsName: 'Wasif', studentName: 'boutata', month: 'Mai 2019', description: 'wasif@email.com' },
+            { id: 1,title:"Detection de fraud],*/
+            theses: [{
+            id:'',
+            title:'',
+            profsName:'',
+            studentName:'',
+            annee:'',
+            description:''
+          }],
+            message: null
         }
         this.deleteThese = this.deleteThese.bind(this);
         this.editThese = this.editThese.bind(this);
         this.addThese = this.addThese.bind(this);
-       // this.reloadTheseList = this.reloadTheseList.bind(this);
     }
+    
+        /**
+         * @async
+         * @method
+         * @returns Liste thèses 
+         * @throws {NotFoundError} La liste des thèses n'est pas trouvée 
+         */
       async componentDidMount(){
-        Axios.get('/api/list')
+        axios.get('/api/list')
           .then(list => {
             this.setState({theses: list.data})
           })
           .catch(err => console.log(err))
        }
-   /* reloadTheseList() {
-        ApiService.fetchUsers()
-            .then((res) => {
-                this.setState({theses: res.data.result})
-            });
-    }*/ 
 
-    deleteThese(theseId) {
-        ApiService.deleteThese(theseId)
+        /**
+
+        * @method qui supprime une thèse ayant l'identifiant theseId
+        * @param {number} theseId - Identifiant de la thèse 
+        */
+    /*deleteThese(theseId) {
+        axios.delete(USER_API_BASE_URL + '/' + theseId )  
            .then(res => {
-               this.setState({message : 'Th deleted successfully.'});
-               this.setState({theses: this.state.theses.filter(these => these.id !== theseId)});
+                this.setState({theses: this.state.theses.filter(these => these.id !== theseId)});
+                this.setState({message : 'These deleted successfully.'});
+               
            })
-    }
-
-    editThese(id) {
-        window.localStorage.setItem("theseId", id);
-        this.props.history.push('/edit-these');
-    }
-
-    addThese() {
-        window.localStorage.removeItem("TheseId");
-        this.props.history.push('/add-these');
-    }
+    }*/ 
 
     render() {
         return (
-            
+
             <div>
             <SideBar/>
             <div className="auth-wrapper">
             <div className="auth-liste">
             <Typography component="h4" variant="h4" align="center" color="textPrimary" gutterBottom>
                 Liste des thèses de Doctorat
-            </Typography> 
-            
-            <Container> 
+            </Typography>
+
+            <Container>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -89,7 +102,7 @@ class ListTheseComponent extends Component {
                                 <TableCell align="center">{row.title}</TableCell>
                                 <TableCell align="center">{row.studentName}</TableCell>
                                 <TableCell align="center">{row.profsName}</TableCell>
-                                <TableCell align="center">{row.month}</TableCell>
+                                <TableCell align="center">{row.annee}</TableCell>
                                 <TableCell align="center">{row.description}</TableCell>
                                 <TableCell align="center" onClick={() => this.editThese(row.id)}><CreateIcon /></TableCell>
                                 <TableCell align="center" onClick={() => this.deleteThese(row.id)}><DeleteIcon /></TableCell>
@@ -98,7 +111,7 @@ class ListTheseComponent extends Component {
                         ))}
                     </TableBody>
                 </Table>
-                </Container>
+            </Container>
                 </div>
                 </div>
 
@@ -114,9 +127,3 @@ const style ={
 }
 
 export default ListTheseComponent;
-
-/* 
-     <Button variant="contained" color="primary" onClick={() => this.addUser()}>
-                    Ajouter Thèse
-                </Button>
-*/ 

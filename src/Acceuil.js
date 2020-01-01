@@ -48,34 +48,12 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(6),
   },
 }));
-/* state = {
-    redirect: false
-  }
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    })
-  }
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='./login.component.js' />
-    }
-  }
-  function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Liink color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Liink>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-*/ 
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+ /**
+ * Classe Acceuil
+ */
 
 export default function Acceuil() {
   const classes = useStyles();

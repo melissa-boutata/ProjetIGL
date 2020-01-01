@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: AddThese.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: AddThese.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react'
+import ApiService from "./service/ApiService";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import NavBar from './NavBar.jsx'; 
+import SideBar from './SideBar.jsx' 
+import axios from 'axios';
+
+import './App.css'; 
+/**
+ *  Classe  AddTheseComponent qui ajoute une thèse
+ */
+
+class AddTheseComponent extends Component{
+
+    /**
+ * @constructor
+ */
+    constructor(props){
+        super(props);
+        this.state ={
+            title: '',
+            profsName: '',
+            studentName: '',
+            month: '',
+            description: ''
+        }
+        this.saveThese = this.saveThese.bind(this);
+        //this.onFormSubmit = this.onFormSubmit.bind(this)
+        this.onChange= this.onChange.bind(this); 
+        //this.fileUpload = this.fileUpload.bind(this)
+    }
+   
+
+    /**
+    *  Méthode qui joute une these et met à jour l'état du composant 
+    */
+ 
+    saveThese (e) {
+        /*
+        e.preventDefault();
+        let these = {title: this.state.title, profsName: this.state.profsName, studentName: this.state.studentName, description: this.state.description, month: this.state.month};
+     
+           axios.post('api/add',these)
+            .then(res => {
+                this.setState({message : 'These added successfully.'});
+                this.props.history.push('/List');
+            })
+        
+            .catch(error=>{
+                this.refs.title.value="";
+                this.refs.description.value="";
+                this.refs.month.value="";
+                this.refs.profsName.value="";
+                this.refs.studentName.value="";
+                this.setState({err: true});
+              });*/ 
+              this.props.history.push('/');
+
+         }
+
+    onChange (e) {
+
+        this.setState({ [e.target.name]: e.target.value });
+    }
+        
+    render() {
+        return(
+            &lt;div>
+             &lt;SideBar/>
+            &lt;div className="auth-wrapper">
+            &lt;div className="auth-these">
+            &lt;Typography component="h4" variant="h4" align="center" color="textPrimary" gutterBottom>
+                Ajouter une thèse de Doctorat
+            &lt;/Typography>
+                &lt;form style={formContainer}>
+                
+                    &lt;TextField id="title" type="text" placeholder="Titre de la thèse" fullWidth margin="normal" name="title" value={this.state.title} onChange={this.onChange}/>
+
+                    &lt;TextField id="prof" type="text" placeholder="Profs encadrants" fullWidth margin="normal" name="profsName" value={this.state.profs} onChange={this.onChange}/>
+
+                    &lt;TextField id="etud" placeholder="Etudiants concernés" fullWidth margin="normal" name="studentName" value={this.state.Name} onChange={this.onChange}/>
+
+                    &lt;TextField id="month" type="month" placeholder="Année Scolaire" fullWidth margin="normal" name="month" value={this.state.annee} onChange={this.onChange}/>
+                    &lt;TextField id="description" placeholder="Description" fullWidth margin="normal" name="description" value={this.state.description} onChange={this.onChange}/>
+
+                    &lt;Button id="send" type ="submit" variant="contained" color="primary" onClick={this.saveThese}>Enregistrer&lt;/Button>
+
+               &lt;/form>
+               &lt;/div> 
+               &lt;/div> 
+              
+
+           &lt;/div>
+        );
+    }
+}
+ const formContainer = {
+    display: 'flex',
+    flexFlow: 'row wrap'
+};
+
+const style ={
+    display: 'flex',
+    justifyContent: 'center'
+
+}
+
+
+export default AddTheseComponent;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AddTheseComponent.html">AddTheseComponent</a></li><li><a href="ListTheseComponent.html">ListTheseComponent</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NavBar">NavBar</a></li><li><a href="global.html#onSubmit">onSubmit</a></li><li><a href="global.html#quisupprimeuneth%25C3%25A8seayantl'identifianttheseId">qui supprime une thèse ayant l'identifiant theseId</a></li><li><a href="global.html#SideBar">SideBar</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Thu Nov 28 2019 11:23:55 GMT+0100 (GMT+01:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

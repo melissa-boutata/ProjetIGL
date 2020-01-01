@@ -86,12 +86,14 @@ import { BrowserRouter as Router,Route,Switch} from 'react-router-dom';
             </Switch>
         </Router>
       );
-    };
-   /* class App extends Component {
+    }; 
+    /*
+    class App extends Component {
       render()
       {
         return (
-          <SignUp> </SignUp>
+          <button id="sel-button">Click me!</button>
+
 
         );
       }

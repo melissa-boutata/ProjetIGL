@@ -10,6 +10,10 @@ import { Link } from 'react-router-dom';
 const style = {
     flexGrow: 1
 }
+/**
+         * Classe NavBar
+        
+ */
 const NavBar = () => {
     return (
         <div>
